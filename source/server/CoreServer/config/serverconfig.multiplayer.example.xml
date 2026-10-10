@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Starting point for hosting Offline DAoC for a small group of friends over the internet.
+  See docs/MULTIPLAYER-SETUP.md for the full setup (port forwarding, accounts, firewall).
+  Copy this over runtime/server/config/serverconfig.xml on the host, then fill in the
+  database section the same way your current serverconfig.xml already does.
+-->
+<root>
+    <Server>
+        <Port>10300</Port>
+        <IP>0.0.0.0</IP>
+        <!-- Leave RegionIP at 0.0.0.0 with DetectRegionIP True below unless auto-detection
+             fails; then set RegionIP to your public IP or dynamic DNS hostname instead. -->
+        <RegionIP>0.0.0.0</RegionIP>
+        <RegionPort>10400</RegionPort>
+        <UdpIP>0.0.0.0</UdpIP>
+        <UdpPort>10400</UdpPort>
+        <EnableUPnP>True</EnableUPnP>
+        <DetectRegionIP>True</DetectRegionIP>
+        <ServerName>OpenDAoC</ServerName>
+        <ServerNameShort>CoreServer</ServerNameShort>
+        <LogConfigFile>./config/logconfig.xml</LogConfigFile>
+        <ScriptCompilationTarget>./lib/GameServerScripts.dll</ScriptCompilationTarget>
+        <ScriptAssemblies> </ScriptAssemblies>
+        <EnableCompilation>True</EnableCompilation>
+        <!-- Off on purpose: with the server reachable from the internet, create each friend's
+             account yourself with /account create <accountName> <password> instead of letting
+             anyone who finds the address register one. Also set the allow_auto_account_creation
+             server property to False (docs/MULTIPLAYER-SETUP.md). -->
+        <AutoAccountCreation>False</AutoAccountCreation>
+        <GameType>Normal</GameType>
+        <CheatLoggerName>cheats</CheatLoggerName>
+        <GMActionLoggerName>gmactions</GMActionLoggerName>
+        <InvalidNamesFile>./config/invalidnames.txt</InvalidNamesFile>
+        <DBType>MYSQL</DBType>
+        <DBConnectionString>Server=localhost;Port=3306;Database=DBNAME;UserId=USERNAME;******;TreatTinyAsBoolean=false;Pooling=true;MinimumPoolSize=30;MaximumPoolSize=120;ConnectionReset=false</DBConnectionString>
+        <DBAutosave>True</DBAutosave>
+        <DBAutosaveInterval>10</DBAutosaveInterval>
+        <MetricsEnabled>false</MetricsEnabled>
+        <MetricsInterval>60s</MetricsInterval>
+        <OtlpEndpoint>http://localhost:4317</OtlpEndpoint>
+    </Server>
+</root>

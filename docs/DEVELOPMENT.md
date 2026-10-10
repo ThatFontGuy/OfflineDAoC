@@ -89,4 +89,8 @@ Checks:
   and economy history. Also keep `account.txt`, logs, dumps and backups out of commits.
 - **Review before pushing.** Run `git diff --cached` before every push; `.gitignore` is a safety
   net only.
-- **Local only:** the default setup is for one PC. Don't expose it to the internet as-is.
+- **Local only by default:** out of the box, the setup is for one PC. The server itself is
+  ordinary OpenDAoC multiplayer code (nothing restricts it to one real player), but don't expose
+  a default install to the internet as-is: auto-account creation is on and no ports are
+  forwarded. To host for a small group of friends, follow
+  [docs/MULTIPLAYER-SETUP.md](MULTIPLAYER-SETUP.md) first.
